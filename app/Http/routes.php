@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +24,16 @@ Route::get('/', function () {
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
-    //
+
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::get('/', function () {
+        return view('welcome', ['id' => 100]);
+    });
+
+
+    Route::resource('/articles', 'PostController');
+
+    Route::get('/home', 'HomeController@index');
 });
