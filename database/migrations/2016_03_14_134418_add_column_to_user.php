@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddColumnsToPosts extends Migration
+class AddColumnToUser extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,8 @@ class AddColumnsToPosts extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')
-            ->on('users');
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('firstname')->after('name');
         });
     }
 
@@ -26,8 +24,6 @@ class AddColumnsToPosts extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            //
-        });
+        //
     }
 }

@@ -8,12 +8,19 @@
     <div class="form-group">
         {!! Form::text('name', $user->name, ['class'=> 'form-control', 'maClasse', 'placeholder'=> '', 'Mon champs']) !!}
     </div>
-
+    {!! Form::label('name_du_champs', 'Prenom') !!}
+    <div class="form-group">
+        {!! Form::text('firstname', $user->firstname, ['class'=> 'form-control', 'maClasse', 'placeholder'=> '', 'Mon champs']) !!}
+    </div>
     {!! Form::label('name_du_champs', 'Email') !!}
     <div class="form-group">
         {!! Form::text('email', $user->email, ['class'=> 'form-control', 'maClasse', 'placeholder'=> '', 'Mon champs']) !!}
     </div>
-    {!! Form::submit('Envoyer', ['class'=>'btn btn-block']) !!}
+    {!! Form::label('name_du_champs', 'Mot de passe') !!}
+    <div class="form-group">
+        {!!Form::password('password', array('class' => 'form-control', 'placeholder'=> '***********'))!!}
+    </div>
+{!! Form::submit('Envoyer', ['class'=>'btn btn-block']) !!}
 
     {!! Form::close() !!}
 

@@ -79,11 +79,20 @@ class ProfilController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //dd($request);
-        $user = Auth::user();
-        // $post->user_id = $request->user_id ;
-        $user->name = $request->name;
-        $user->email = $request->email;
+        if(empty($request->password)){
+            //dd($request);
+            $user = Auth::user();
+            $user->name = $request->name;
+            $user->firstname = $request->firstname;
+            $user->email = $request->email;
+        }else{
+            //dd($request);
+            $user = Auth::user();
+            $user->name = $request->name;
+            $user->firstname = $request->firstname;
+            $user->email = $request->email;
+            $user->password = bcrypt($request->password);
+        }
         $user->update();
         return redirect()->route('profil.index',$user->$id)->with(compact('user'));
 
