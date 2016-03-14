@@ -32,6 +32,7 @@ Route::group(['middleware' => 'web'], function () {
         return view('welcome', ['id' => 100]);
     });
 
+    Route::resource('/profil', 'ProfilController');
 
     Route::resource('/articles', 'PostController');
 
