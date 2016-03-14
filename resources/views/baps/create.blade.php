@@ -1,6 +1,6 @@
 @extends('layouts.app', ['pageTitle'=> 'Formulaire' ])
 @section('content')
-    {{--{!! Form::open(array('route' => 'form.store', 'method' => 'POST')) !!}--}}
+    {!! Form::open(array('route' => 'baps.store', 'method' => 'POST')) !!}
     {{csrf_field()}}
     {{-- Champ nom de la BAP--}}
 
@@ -99,13 +99,13 @@
     {{-- Champ 3d--}}
 
     <div class="form-group col-md-6 col-xs-6">
-        {!! Form::checkbox('3d', 'value', false)!!}
+        {!! Form::checkbox('three_d', 'value', false)!!}
         {!! Form::label('name_du_champs', '3D') !!}
     </div>
     {{-- Champ animation 2d--}}
 
     <div class="form-group col-md-6 col-xs-6">
-        {!! Form::checkbox('2d', 'value', false)!!}
+        {!! Form::checkbox('two_d', 'value', false)!!}
         {!! Form::label('name_du_champs', 'Animation 2D') !!}
     </div>
     {{-- Champ installation multimedia--}}
