@@ -48,10 +48,12 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
+                    <li><a href="{{ url('/articles') }}">Les articles</a></li>
+                    <li><a href="{{ url('/baps')}}">Les BAP</a></li>
                     @if(Auth::check())
-                        <li><a href="{{ url('/baps/create')
-                        }}">Formulaire BAP</a></li>
+                        <li><a href="{{ url('/baps/create')}}">Formulaire BAP</a></li>
                     @endif
+
 
                 </ul>
 

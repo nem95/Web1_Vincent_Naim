@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\Auth;
 class BapController extends Controller
 {
     public function __construct(){
-        $this->middleware('auth', ['except'=>['index']]);
+        $this->middleware('auth', ['except'=>['index', 'show']]);
+
+        $this->middleware('admin', ['only'=>'show']);
     }
     /**
      * Display a listing of the resource.
@@ -22,8 +24,9 @@ class BapController extends Controller
     public function index()
     {
         $bap = Bap::all();
+        $users = Auth::user();
         //dd($baps);
-        return view('baps.index')->with(compact('bap'));
+        return view('baps.index')->with(compact('bap', 'users'));
     }
 
     /**

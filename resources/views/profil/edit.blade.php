@@ -20,8 +20,14 @@
     <div class="form-group">
         {!!Form::password('password', array('class' => 'form-control', 'placeholder'=> '***********'))!!}
     </div>
-{!! Form::submit('Envoyer', ['class'=>'btn btn-block']) !!}
+    {!! Form::submit('Envoyer', ['class'=>'btn btn-block']) !!}
 
     {!! Form::close() !!}
-
+    @if($errors)
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    @endif
 @endsection

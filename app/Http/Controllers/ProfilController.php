@@ -77,7 +77,7 @@ class ProfilController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Requests\ValidateUserModifRequest $request, $id)
     {
         if(empty($request->password)){
             //dd($request);
