@@ -67,7 +67,7 @@ class PostController extends Controller
             $posts = Post::findOrFail($id);
             return view('articles.show')->with(compact('posts'));
         }catch(\Exception $e){
-            return redirect()->route('articles.index')->with((['erreur' => 'ouuups']));
+            return redirect()->route('articles.index')->with((['erreur' => 'Erreur biatch']));
         };
 
     }
