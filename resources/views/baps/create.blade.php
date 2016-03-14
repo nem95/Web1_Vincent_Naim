@@ -183,5 +183,11 @@ ET INFORMATIONS COMPLEMENTAIRES') !!}
     {!! Form::submit('Envoyer', ['class'=>'btn btn-block']) !!}
 
     {!! Form::close() !!}
-
+    @if($errors)
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    @endif
 @endsection
