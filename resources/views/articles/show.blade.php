@@ -5,7 +5,7 @@
     <h2>{{$posts->title}} <br>Auteurs:
     {{$posts->user->name}}</h2>
     <p>{{$posts->description}}</p>
-    @if(Auth::check()&& Auth::User()->id == $posts->user_id)
+    @if(Auth::check()&& Auth::User()->id == $posts->user_id || Auth::User()->admin == 1)
         <a href="{{route('articles.edit',$posts->id)}}">
             <button>editer l'article</button>
         </a>

@@ -13,7 +13,8 @@ class PostController extends Controller
 {
     public function __construct(){
         $this->middleware('auth', ['except'=>['index', 'show']]);
-        $this->middleware('admin', ['only'=>['edit','destroy' ]]);
+        //$this->middleware('admin', ['only'=>['edit','destroy' ]]);
+        $this->middleware('edit', ['only'=>['edit','destroy' ]]);
     }
     /**
      * Display a listing of the resource.
