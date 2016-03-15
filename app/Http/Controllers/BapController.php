@@ -14,7 +14,7 @@ class BapController extends Controller
     public function __construct(){
         $this->middleware('auth', ['except'=>['index', 'show']]);
 
-        $this->middleware('admin', ['only'=>'show']);
+        $this->middleware('admin', ['only'=>['show','edit']]);
     }
     /**
      * Display a listing of the resource.
@@ -104,7 +104,8 @@ class BapController extends Controller
      */
     public function edit($id)
     {
-        //
+        $bap = Bap::find($id);
+        return view('baps.edit')->with(compact('bap'));
     }
 
     /**
@@ -116,7 +117,12 @@ class BapController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //dd($request->Valider);
+        //dd($bap);
+        $bap = Bap::find($id);
+        $bap->validate = $request->validate;
+        $bap->update();
+        return redirect()->route('baps.show',$bap->id)->with(compact('bap'));
     }
 
     /**
