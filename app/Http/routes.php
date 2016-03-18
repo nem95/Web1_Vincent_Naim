@@ -41,5 +41,6 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::resource('/articles', 'PostController');
     Route::resource('/comment', 'CommentController');
+    Route::resource('/contacts', 'ContactController');
     Route::get('/home', 'HomeController@index');
 });
