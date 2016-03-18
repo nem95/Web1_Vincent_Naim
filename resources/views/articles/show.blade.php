@@ -11,7 +11,7 @@
         <form action="{{route('articles.destroy', $posts->id)}}" method="post">
             {{csrf_field()}}
             <input type="hidden" name="_method" value="DELETE">
-            <button class="col-md-offset-1 col-md-2 btn btn-danger"> Supprimer </button>
+            <button class="col-md-offset-1 col-md-2 btn btn-danger"> Supprimer l'article</button>
         </form>
     @endif
     {!! Form::open(array('route' => ['comment.store',$posts->id],'method' => 'POST')) !!}
