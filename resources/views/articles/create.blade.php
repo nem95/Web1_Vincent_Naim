@@ -23,6 +23,6 @@
 
     --}}
 
-    @include('partials.articles.form', ['action' => 'create']);
-    @include('partials.articles.errors');
+    @include('partials.articles.form', ['action' => 'create'])
+    @include('partials.articles.errors')
 @endsection

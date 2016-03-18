@@ -10,7 +10,7 @@
     </div>
 
     <a href="{{route('profil.edit',$user->id)}}">
-        <button>editer l'article</button>
+        <button>editer mon profil</button>
     </a>
 
 

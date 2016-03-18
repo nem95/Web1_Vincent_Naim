@@ -23,6 +23,13 @@
         .fa-btn {
             margin-right: 6px;
         }
+
+        .validate{
+            color:limegreen;
+        }
+        .refuse{
+            color:red;
+        }
     </style>
 </head>
 <body id="app-layout">
