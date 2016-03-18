@@ -13,7 +13,6 @@ class BapController extends Controller
 {
     public function __construct(){
         $this->middleware('auth');
-
         $this->middleware('admin', ['only'=>['show','edit']]);
     }
     /**
@@ -25,7 +24,6 @@ class BapController extends Controller
     {
         $bap = Bap::all();
         $users = Auth::user();
-        //dd($baps);
         return view('baps.index')->with(compact('bap', 'users'));
     }
 
@@ -117,8 +115,6 @@ class BapController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //dd($request->Valider);
-        //dd($bap);
         $bap = Bap::find($id);
         $bap->validate = $request->validate;
         $bap->update();

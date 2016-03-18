@@ -20,7 +20,6 @@ class ProfilController extends Controller
     public function index()
     {
         $user = Auth::user();
-        //dd($posts);
         return view('profil.profil')->with(compact('user'));
     }
 
@@ -66,7 +65,6 @@ class ProfilController extends Controller
     {
 
         $user = Auth::user($id);
-        //dd($user);
         return view('profil.edit')->with(compact('user'));
     }
 
@@ -80,13 +78,11 @@ class ProfilController extends Controller
     public function update(Requests\ValidateUserModifRequest $request, $id)
     {
         if(empty($request->password)){
-            //dd($request);
             $user = Auth::user();
             $user->name = $request->name;
             $user->firstname = $request->firstname;
             $user->email = $request->email;
         }else{
-            //dd($request);
             $user = Auth::user();
             $user->name = $request->name;
             $user->firstname = $request->firstname;
