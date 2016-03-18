@@ -1,4 +1,4 @@
-
+{{--Page de formulaire pour les articles, avec un if qui permet de savoir si on est sur la page de création de l'article ou de modification--}}
     @if($action == 'edit')
         {!! Form::model($post, array('route' => ['articles.update',$post->id], 'method' => 'PUT')) !!}
         {{--{!! Form::select('user_id',$users, $post->user_id, ['class' => 'form-control']) !!}--}}

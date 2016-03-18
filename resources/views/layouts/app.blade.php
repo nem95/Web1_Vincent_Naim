@@ -60,8 +60,6 @@
                         <li><a href="{{ url('/baps')}}">Les BAP</a></li>
                         <li><a href="{{ url('/baps/create')}}">Formulaire BAP</a></li>
                     @endif
-
-
                 </ul>
 
                 <!-- Right Side Of Navbar -->

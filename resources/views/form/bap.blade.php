@@ -1,6 +1,7 @@
 @extends('layouts.app', ['pageTitle'=> 'Formulaire' ])
 @section('content')
-    {{--{!! Form::open(array('route' => 'form.store', 'method' => 'POST')) !!}--}}
+    {{--
+    {!! Form::open(array('route' => 'form.store', 'method' => 'POST')) !!}--}}
     {{csrf_field()}}
     {{-- Champ nom de la BAP--}}
 

@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
     <h1>Article n.{{ $posts->id }}</h1>
 
     <button><a href="{{route('articles.destroy',
