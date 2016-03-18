@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Post;
 use App\User;
 use Illuminate\Http\Request;
@@ -65,9 +66,13 @@ class PostController extends Controller
      */
     public function show($id)
     {
+        //dd($id);
         try{
             $posts = Post::findOrFail($id);
-            return view('articles.show')->with(compact('posts'));
+            $comments = $posts->comments;
+            //$comments = Comment::where($post_id == $id);
+            //dd($posts->c);
+            return view('articles.show')->with(compact('posts', 'comments'));
         }catch(\Exception $e){
             return redirect()->route('articles.index')->with((['erreur' => 'Erreur biatch']));
         };

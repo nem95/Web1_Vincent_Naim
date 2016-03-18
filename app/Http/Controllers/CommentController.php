@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
+use App\Models\Post;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-
+use Illuminate\Support\Facades\Auth;
 class CommentController extends Controller
 {
     /**
@@ -15,7 +18,9 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all();
+        //dd($posts);
+        return view('articles.index')->with(compact('post','posts'));
     }
 
     /**
@@ -36,7 +41,14 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $comment = new Comment;
+        /*$post = Post::find();
+        dd($post);*/
+        $comment->user_id = Auth::user()->id;
+        $comment->content = $request->content;
+        $comment->post_id = $request->post_id;
+        $comment->save();
+        return redirect()->route('articles.index')->with(compact('comment'));
     }
 
     /**
@@ -47,7 +59,14 @@ class CommentController extends Controller
      */
     public function show($id)
     {
-        //
+        //dd($id);
+        try{
+            $comments = Comment::findOrFail($id);
+            //dd($comments);
+            return view('articles.show')->with(compact('comments'));
+        }catch(\Exception $e){
+            return redirect()->route('articles.index')->with((['erreur' => 'Erreur biatch']));
+        };
     }
 
     /**
@@ -81,6 +100,11 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Comment::find($id);
+        $comments = $post->post->id;
+        //dd($comments);
+        $post->delete();
+        return redirect()->route('articles.show', $comments);
+        // return "tu veux vraiment delete l'article n.$id ?";
     }
 }

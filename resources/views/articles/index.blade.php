@@ -10,7 +10,6 @@
             <a href="{{route('articles.show',$post->id)}}">
                 <button>Voir l'article</button>
             </a>
-
         @endforeach
 
 @endsection

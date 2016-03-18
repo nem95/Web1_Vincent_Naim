@@ -40,6 +40,6 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('/profil', 'ProfilController');
 
     Route::resource('/articles', 'PostController');
-
+    Route::resource('/comment', 'CommentController');
     Route::get('/home', 'HomeController@index');
 });
