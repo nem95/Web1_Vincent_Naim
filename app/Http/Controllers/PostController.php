@@ -17,7 +17,7 @@ class PostController extends Controller
         // et edit qui permet d'editer et de supprimer un article a condition qu'on soit l'auteur de celui-ci ou alors un admin
 
         $this->middleware('auth', ['except'=>['index', 'show']]);
-        $this->middleware('edit', ['only'=>['edit','destroy' ]]);
+        //$this->middleware('edit', ['only'=>['edit','destroy' ]]);
     }
     /**
      * Display a listing of the resource.
@@ -139,6 +139,9 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+        //$comment = $post->comments;
+        //dd($comment);
+        //$comment->delete();
         $post->delete();
         return redirect()->route('articles.index');
         

@@ -4,15 +4,17 @@
     <h1>{{$posts->title}}</h1> <br>
     <p>Auteurs: <b>{{$posts->user->name}}</b> </p>
     <p>{{$posts->description}}</p>
-    @if(Auth::check()&& Auth::User()->id == $posts->user_id || Auth::check() &&  Auth::User()->admin == 1 )
-        <a href="{{route('articles.edit',$posts->id)}}">
-            <button class="col-md-2 btn btn-default"> editer l'article </button>
-        </a>
-        <form action="{{route('articles.destroy', $posts->id)}}" method="post">
-            {{csrf_field()}}
-            <input type="hidden" name="_method" value="DELETE">
-            <button class="col-md-offset-1 col-md-2 btn btn-danger"> Supprimer l'article</button>
-        </form>
+    @if(Auth::check())
+        @if( Auth::User()->id == $posts->user_id || Auth::User()->admin == 1 )
+            <a href="{{route('articles.edit',$posts->id)}}">
+                <button class="col-md-2 btn btn-default"> editer l'article </button>
+            </a>
+            <form action="{{route('articles.destroy', $posts->id)}}" method="post">
+                {{csrf_field()}}
+                <input type="hidden" name="_method" value="DELETE">
+                <button class="col-md-offset-1 col-md-2 btn btn-danger"> Supprimer l'article</button>
+            </form>
+        @endif
     @endif
     {!! Form::open(array('route' => ['comment.store',$posts->id],'method' => 'POST')) !!}
     {{csrf_field()}}

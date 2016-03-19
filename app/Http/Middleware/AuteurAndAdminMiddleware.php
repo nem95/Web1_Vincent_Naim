@@ -15,7 +15,7 @@ class AuteurAndAdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if( !Auth::check()|| Auth::user()->admin != 1){
+        if( Auth::check()!= true || Auth::user()->admin != 1){
             return redirect()->route('articles.index');
         }
         return $next($request);

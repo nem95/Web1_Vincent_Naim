@@ -12,7 +12,7 @@ class CreateBapTable extends Migration
      */
     public function up()
     {
-        Schema::create('bap', function (Blueprint $table) {
+        Schema::create('baps', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
@@ -28,16 +28,16 @@ class CreateBapTable extends Migration
             $table->string('mail_contact');
             $table->string('tel_contact');
             $table->longText('description');
-            $table->boolean('site');
-            $table->boolean('3d');
-            $table->boolean('2d');
-            $table->boolean('multi');
-            $table->boolean('jeux_video');
-            $table->boolean('dvd');
-            $table->boolean('print');
-            $table->boolean('cd_rom');
-            $table->boolean('event');
-            $table->boolean('autre');
+            $table->boolean('site')->nullable();
+            $table->boolean('three_d')->nullable();
+            $table->boolean('two_d')->nullable();
+            $table->boolean('multi')->nullable();
+            $table->boolean('jeux_video')->nullable();
+            $table->boolean('dvd')->nullable();
+            $table->boolean('print')->nullable();
+            $table->boolean('cd_rom')->nullable();
+            $table->boolean('event')->nullable();
+            $table->boolean('autre')->nullable();
             $table->longText('demande');
             $table->longText('contexte');
             $table->longText('objectif');
